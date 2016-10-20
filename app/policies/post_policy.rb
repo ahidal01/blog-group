@@ -1,11 +1,11 @@
 class PostPolicy < ApplicationPolicy
-  def initialize(user, post)
-    @user = user
-    @post = post
-  end
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
+ def create?
+   user.has_role? admin or user.has_role? :poster
+ end
+ def update?
+   user.has_role? :admin or (user.has_role? :poster and record.user_id==user.id)
+ end
+ def destroy?
+   user.has_role? admin or (user.has_role? :poster and record.user_id==user.id)
+ end
 end
