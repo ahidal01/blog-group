@@ -6,6 +6,8 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'rolify'
 #Pundit
 gem 'pundit'
+#Devise
+gem 'devise'
 #Annotate
 gem 'annotate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
